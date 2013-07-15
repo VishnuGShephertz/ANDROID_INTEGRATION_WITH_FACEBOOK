@@ -34,3 +34,5 @@ G. Now your application is authenticated with Face-book.
 7.&nbsp; Add this library project ion your sample android application.<br/>
 8.&nbsp; Open Constants.java file and change FB_APP_ID with your fb APP ID.<br/>
 9.&nbsp; Build your android application and install on your android device.<br/>
+
+# Design Details:
