@@ -29,8 +29,8 @@ F. Copy this key hash value to your Facebook Application that you made in step 2
 G. Now your application is authenticated with Face-book.
 ```
 
-5.</nbsp> Download the project from [here] (https://github.com/VishnuGShephertz/ANDROID_INTEGRATION_WITH_FACEBOOK/archive/master.zip) and import it in the eclipse.<br/>
-6.  Import Face-Book SDK project in you eclipse and make it as a library project.<br/>
-7. Add this library project ion your sample android application.<br/>
-8. Open Constants.java file and change FB_APP_ID with your fb APP ID.<br/>
-9. Build your android application and install on your android device.<br/>
+5.&nbsp; Download the project from [here] (https://github.com/VishnuGShephertz/ANDROID_INTEGRATION_WITH_FACEBOOK/archive/master.zip) and import it in the eclipse.<br/>
+6.&nbsp; Import Face-Book SDK project in you eclipse and make it as a library project.<br/>
+7.&nbsp; Add this library project ion your sample android application.<br/>
+8.&nbsp; Open Constants.java file and change FB_APP_ID with your fb APP ID.<br/>
+9.&nbsp; Build your android application and install on your android device.<br/>
