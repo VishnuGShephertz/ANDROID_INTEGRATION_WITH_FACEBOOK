@@ -1,4 +1,4 @@
-package com.example.imagesharing;
+package com.example.facebook.android.integration;
 
 import android.widget.BaseAdapter;
 

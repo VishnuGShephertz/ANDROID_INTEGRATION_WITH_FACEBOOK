@@ -1,4 +1,4 @@
-package com.example.imagesharing;
+package com.example.facebook.android.integration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.imagesharing.FacebookService.FacebookFriendListRequester;
+import com.example.facebook.android.integration.FacebookService.FacebookFriendListRequester;
+
 
 public class FriendList extends Activity implements FacebookFriendListRequester {
 	private ListView friendList;
