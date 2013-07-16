@@ -3,46 +3,46 @@ Android_Integration_With_Facebook
 # About application
 
 1. This application shows how can we integrate our android application with Face-Book API.
-2. This application simply shows how can we get Face-Book all Face-Book friends with their online presence.
+2. This sample shows how can we get our Face-Book friends with their online presence.
 
 # Running Sample
 
 1. First off all download Face-book SDk from [here ] (https://github.com/facebook/facebook-android-sdk).
-2. Create an application [here ] (https://developers.facebook.com/apps/) to get an Facebook APP ID for your 
+2. Create a Face-Book application [here ] (https://developers.facebook.com/apps/) to get an Facebook APP ID for your 
    application.
-3. You need to create the key hash value of your signature and your android debug.keystore (for the develop stage).
+3. You need to create a key hash of your signature from android debug.keystore (for the develop stage).
 4. For this First download OpenSSL from [here](http://code.google.com/p/openssl-for-windows/downloads/list) and extract to a folder 
    (in my case, c:\openssl) and follow these steps.
 
 ```
-A. To create key hash values, you need to navigate to your JAVA jdk folder, where the keytool.exe is. (In my case, in windows 
+A. To create key hash, you need to navigate to your JAVA jdk folder, where the keytool.exe is. (in my case, in windows 
     is: C:\Program Files (x86)\Java\jdk1.6.0_16\bin)
-B. This also requires path of your debug.keystore (In my case, in windows is: C:\Users\MyUsername\.android).
+B. This also requires path of your debug.keystore (in my case, in windows is: C:\Users\MyUsername\.android).
 C. Now open your command prompt and navigate to the jdk bin folder and run following command.
    keytool -exportcert -alias androiddebugkey -keystore "<debug.keystore path>" > C:\openssl\bin\debug.txt
 D. Navigate to "C:\openssl\bin\" using command prompt and run following commands.
    openssl sha1 -binary debug.txt > debug_sha.txt
    openssl base64 -in debug_sha.txt > debug_base64.txt
-E. The debug_base64.txt contains the key hash value.
-F. Copy this key hash value to your Facebook Application that you made in step 2.
-   (Edit Settings -> Native Android App -> Key Hashes:) and also enable Facebook Login and save it.
-G. Now your application is authenticated with Face-book.
+E. debug_base64.txt contains the key hash.
+F. Copy this key hash to your Facebook Application that you made in step 2.
+   (Edit Settings -> Native Android App -> Key Hashes:) and also enable Facebook login and save it.
+G. Now your application is authenticated with Face-Book.
 ```
 
 5.&nbsp; Download the project from [here] (https://github.com/VishnuGShephertz/ANDROID_INTEGRATION_WITH_FACEBOOK/archive/master.zip) and import it in the eclipse.<br/>
-6.&nbsp; Import Face-Book SDK project in you eclipse and make it as a library project.<br/>
-7.&nbsp; Add this library project ion your sample android application.<br/>
-8.&nbsp; Open Constants.java file and change FB_APP_ID with your fb APP ID.<br/>
+6.&nbsp; Import Face-Book SDK project in you eclipse and make it library project.<br/>
+7.&nbsp; Add this library project into your sample android application.<br/>
+8.&nbsp; Open Constants.java file and change FB_APP_ID variable value with your FB APP ID.<br/>
 9.&nbsp; Build your android application and install on your android device.<br/>
 
 # Design Details:
 
-__Authorize With Face-Book:__ To you Face-book API in your android application you have to authorize application.
+__Authorization With Face-Book:__ To use Face-book API in your android application you have to authorize application.
  as sample I have authorized my application in FacebookService.java file. In this method you have to pass three parameters :
  1. Your host Activity on which you have to get callback from Facebook API.</br>
  2. All Facebook API permissions required for your application in form of String array.(in this sample I request 
      for friends_online_presence).
- 3. This is called only first time after installation  with face-Book.
+ 3. This is called only first time after installation  with Face-Book.
  4. Once your application is authorize , you can use face-Book API directly.
  
 
@@ -94,7 +94,7 @@ __Authorize With Face-Book:__ To you Face-book API in your android application y
     }
 ```
 
-_Authorization callback :__ After authorization step you have to authorize Callback as an acknowledgement in onActivityResult method of your host Activity.
+__Authorization callback :__ After authorization step you have to authorize callback as an acknowledgement in onActivityResult method of your host Activity.
 This is done in FriendList.java file.
 
 ```
@@ -110,7 +110,7 @@ This is done in FriendList.java file.
 	}
 ```
 
-_Get Face-Book Profile:__ You can get your Facebook profile while getting authorization callBack(in onComplete() describe above).
+__Get Face-Book Profile:__ You can get your Facebook profile after getting authorization (in onComplete() describe above).
 This is done in FacebookService.java file.
 
 ```
@@ -123,7 +123,7 @@ This is done in FacebookService.java file.
     
 ```
 
-_Get Face-Book Friends:__ You can get your Facebook friends you can write your own query or refer following code
+__Get Face-Book Friends:__ You can get your Facebook friends by writting your own query or can refer following code ,
 written in FacebookService.java file.
 
 ```
