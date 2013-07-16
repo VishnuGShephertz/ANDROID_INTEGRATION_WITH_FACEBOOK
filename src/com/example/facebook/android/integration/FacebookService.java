@@ -97,8 +97,6 @@ public class FacebookService {
     	if(mUIThreadHandler == null){
     		mUIThreadHandler = new Handler();
     	}
-    	System.out.println("fetchFacebookProfile");
-      
     	facebook.authorize(hostActivity, new
         		String[] {
         		"friends_online_presence"}
@@ -142,15 +140,12 @@ public class FacebookService {
     
     public void getFacebookProfile(FriendList callingActivity)
     {
-    	System.out.println("euierrewre");
         Bundle params = new Bundle();
         params.putString("fields", "name, picture");    	
     	mAsyncRunner.request("me", params, new FacebookRequestListener(callingActivity));
-    	//mAsyncRunner.request("me",  new FacebookRequestListener(callingActivity));
     }
     
     public void getFacebookFriends(FacebookFriendListRequester caller){
-
     	if(mUIThreadHandler == null){
     		mUIThreadHandler = new Handler();
     	}
