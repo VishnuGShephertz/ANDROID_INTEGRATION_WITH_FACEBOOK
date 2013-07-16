@@ -133,7 +133,8 @@ written in FacebookService.java file.
     	}
         Bundle params = new Bundle();
     	params.putString("method","fql.query");
-    	params.putString("query","SELECT name,uid,pic,online_presence FROM user WHERE uid IN ( SELECT uid2 FROM friend WHERE uid1 = me()) ORDER BY name" ); 
+    	params.putString("query","SELECT name,uid,pic,online_presence FROM user WHERE uid IN 
+    	( SELECT uid2 FROM friend WHERE uid1 = me()) ORDER BY name" ); 
     	mAsyncRunner.request(params, new FacebookFriendListRequest(caller));
     }
     
