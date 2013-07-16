@@ -18,7 +18,7 @@
         <activity
             android:name="com.example.facebook.android.integration.SplashActivty"
             android:configChanges="orientation"
-            android:label="Share Pics" >
+          >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

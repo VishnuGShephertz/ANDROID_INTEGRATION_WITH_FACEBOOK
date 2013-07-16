@@ -59,7 +59,7 @@ public class FriendList extends Activity implements FacebookFriendListRequester 
 				FacebookService.instance().getFacebookFriends(this);
 			}
 		}
-
+	
 	}
 
 	public void onStart() {
@@ -74,7 +74,7 @@ public class FriendList extends Activity implements FacebookFriendListRequester 
 		alt_bld.setMessage("Error in Network Connection!").setCancelable(false)
 				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						// Action for 'Yes' Button
+						
 						finish();
 					}
 				});
