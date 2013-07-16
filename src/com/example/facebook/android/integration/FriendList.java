@@ -172,10 +172,10 @@ public class FriendList extends Activity implements FacebookFriendListRequester 
 		for (int i = 0; i < size; i++) {
 			try {
 				listElements.add(new BaseListElement(friendsInfo.get(i)
-						.getString(Constants.keyFName), friendsInfo.get(i)
-						.getString(Constants.keyFPic), friendsInfo.get(i)
-						.getString(Constants.keyFPresence), friendsInfo.get(i)
-						.getString(Constants.keyFID)));
+						.getString(Constants.KEYF_NAME), friendsInfo.get(i)
+						.getString(Constants.KEYF_PIC_URL), friendsInfo.get(i)
+						.getString(Constants.KEYF_PRESENCE), friendsInfo.get(i)
+						.getString(Constants.KEYF_ID)));
 			} catch (JSONException e) {
 
 			}
@@ -279,10 +279,10 @@ public class FriendList extends Activity implements FacebookFriendListRequester 
 					friendName.setText(listElement.getName());
 				}
 				if (statusIcon != null) {
-					if (listElement.getStatus().equals(Constants.keyFActive)) {
+					if (listElement.getStatus().equals(Constants.KEYF_ACTIVE)) {
 						statusIcon.setImageResource(R.drawable.online);
 					} else if (listElement.getStatus().equals(
-							Constants.keyFIdle)) {
+							Constants.KEYF_IDLE)) {
 						statusIcon.setImageResource(R.drawable.idle);
 					} else {
 						statusIcon.setImageResource(R.drawable.offline);

@@ -178,11 +178,11 @@ public class FacebookService {
 				
 					for(int i=0;i<jsonArray.length();i++){
 						JSONObject friendData = jsonArray.getJSONObject(i);
-						String onlineStatus=friendData.getString(Constants.keyFPresence).trim();
-						   if(onlineStatus.equals(Constants.keyFActive)){
+						String onlineStatus=friendData.getString(Constants.KEYF_PRESENCE).trim();
+						   if(onlineStatus.equals(Constants.KEYF_ACTIVE)){
 							   onlinefriendInfo.add(friendData);
 						   }
-						   else if(onlineStatus.endsWith(Constants.keyFIdle)){
+						   else if(onlineStatus.endsWith(Constants.KEYF_IDLE)){
 							   idlefriendInfo.add(friendData);
 						   }
 						   else{

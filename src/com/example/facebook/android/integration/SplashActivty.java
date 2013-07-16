@@ -34,7 +34,7 @@ public class SplashActivty extends Activity{
 			public void run() {
 				gotoMenuScreen();
 			}
-		}, Constants.SPLASHTIME);
+		}, Constants.SPLASH_TIME);
 	}
 	
 	private void gotoMenuScreen(){
