@@ -2,15 +2,15 @@ Android_Integration_With_Facebook
 =================================
 # About application
 
-1. This application shows how can we integrate our android application with FaceBook API.
-2. This application simply shows how can we get facebook all facebook friends with their online presence.
+1. This application shows how can we integrate our android application with Face-Book API.
+2. This application simply shows how can we get Face-Book all Face-Book friends with their online presence.
 
 # Running Sample
 
 1. First off all download Face-book SDk from [here ] (https://github.com/facebook/facebook-android-sdk).
 2. Create an application [here ] (https://developers.facebook.com/apps/) to get an Facebook APP ID for your 
    application.
-3. You need to create the key hash value of your signature and your android debugkeystore (for the develop stage).
+3. You need to create the key hash value of your signature and your android debug.keystore (for the develop stage).
 4. For this First download OpenSSL from [here](http://code.google.com/p/openssl-for-windows/downloads/list) and extract to a folder 
    (in my case, c:\openssl) and follow these steps.
 
@@ -37,13 +37,13 @@ G. Now your application is authenticated with Face-book.
 
 # Design Details:
 
-__Authorize With FaceBook:__ To you Face-book API in your android application you have to authorize application.
+__Authorize With Face-Book:__ To you Face-book API in your android application you have to authorize application.
  as sample I have authorized my application in FacebookService.java file. In this method you have to pass three parameters :
- 1. Your host Activity on whcih you have to get callBack from Facebook API.</br>
+ 1. Your host Activity on which you have to get callback from Facebook API.</br>
  2. All Facebook API permissions required for your application in form of String array.(in this sample I request 
      for friends_online_presence).
- 3. This is called only first time after installation  with facebook.
- 4. Once your application is auhtorize , you can use facebook API directly.
+ 3. This is called only first time after installation  with face-Book.
+ 4. Once your application is authorize , you can use face-Book API directly.
  
 
 ``` 
@@ -94,7 +94,7 @@ __Authorize With FaceBook:__ To you Face-book API in your android application yo
     }
 ```
 
-_Authorization callBack :__ After authorizaion step you have to authorizeCallback as an acknowlesgement in onActivityResult method of your host Activity.
+_Authorization callback :__ After authorization step you have to authorize Callback as an acknowledgement in onActivityResult method of your host Activity.
 This is done in FriendList.java file.
 
 ```
@@ -110,7 +110,7 @@ This is done in FriendList.java file.
 	}
 ```
 
-_Get FaceBook Profile:__ You can get your Facebook profile while getting authorization callBack(in onComplete() describe above).
+_Get Face-Book Profile:__ You can get your Facebook profile while getting authorization callBack(in onComplete() describe above).
 This is done in FacebookService.java file.
 
 ```
@@ -123,7 +123,7 @@ This is done in FacebookService.java file.
     
 ```
 
-_Get FaceBook Friends:__ You can get your Facebook friends you can write your own query or refer following code
+_Get Face-Book Friends:__ You can get your Facebook friends you can write your own query or refer following code
 written in FacebookService.java file.
 
 ```
