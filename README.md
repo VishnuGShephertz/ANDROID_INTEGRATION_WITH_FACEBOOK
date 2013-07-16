@@ -1,4 +1,4 @@
-ANDROID_INTEGRATION_WITH_FACEBOOK
+Android_Integration_With_Facebook
 =================================
 # About application
 
@@ -23,7 +23,7 @@ C. Now open your command prompt and navigate to the jdk bin folder and run follo
 D. Navigate to "C:\openssl\bin\" using command prompt and run following commands.
    openssl sha1 -binary debug.txt > debug_sha.txt
    openssl base64 -in debug_sha.txt > debug_base64.txt
-E. The debug_base64.txt contains the key hash value,
+E. The debug_base64.txt contains the key hash value.
 F. Copy this key hash value to your Facebook Application that you made in step 2.
    (Edit Settings -> Native Android App -> Key Hashes:) and also enable Facebook Login and save it.
 G. Now your application is authenticated with Face-book.
@@ -36,3 +36,106 @@ G. Now your application is authenticated with Face-book.
 9.&nbsp; Build your android application and install on your android device.<br/>
 
 # Design Details:
+
+__Authorize With FaceBook:__ To you Face-book API in your android application you have to authorize application.
+ as sample I have authorized my application in FacebookService.java file. In this method you have to pass three parameters :
+ 1. Your host Activity on whcih you have to get callBack from Facebook API.</br>
+ 2. All Facebook API permissions required for your application in form of String array.(in this sample I request 
+     for friends_online_presence).
+ 3. This is called only first time after installation  with facebook.
+ 4. Once your application is auhtorize , you can use facebook API directly.
+ 
+
+``` 
+   public void fetchFacebookProfile(final FriendList hostActivity)
+    {
+       if(mUIThreadHandler == null){
+    		mUIThreadHandler = new Handler();
+    	}
+    	facebook.authorize(hostActivity, new
+        		String[] {
+        		"friends_online_presence"}
+        		, new DialogListener() {
+            @Override
+            public void onComplete(Bundle values) {
+            	System.out.println("authorize on complete");
+            	if(mPrefs == null){
+            		mPrefs = appContext.getSharedPreferences("MyGamePreferences", android.content.Context.MODE_PRIVATE);
+            	}
+                SharedPreferences.Editor editor = mPrefs.edit();
+                UserContext.accessToken= facebook.getAccessToken();
+                editor.putString("access_token", facebook.getAccessToken());
+                editor.putLong("access_expires", facebook.getAccessExpires());
+                editor.commit();
+                FacebookService.this.getFacebookProfile(hostActivity);
+            }
+
+            @Override
+            public void onFacebookError(FacebookError error) {
+            	System.out.println("ewqqweweeweewew111111111111111");
+            	System.err.println("Facebook onFacebookError");
+            	hostActivity.onFbError();
+            }
+
+            @Override
+            public void onError(DialogError e) {
+            	System.out.println("ewqqweweeweewew111111111111122222222222211");
+            	System.err.println("Facebook DialogError");
+            	hostActivity.onFbError();
+            }
+
+            @Override
+            public void onCancel() {
+            	System.out.println("ccccccccccccccccccc");
+            	System.err.println("Facebook onCancel");
+            	hostActivity.onFbError();
+            }
+        });	
+    }
+```
+
+_Authorization callBack :__ After authorizaion step you have to authorizeCallback as an acknowlesgement in onActivityResult method of your host Activity.
+This is done in FriendList.java file.
+
+```
+   @Override
+   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// super.onActivityResult(requestCode, resultCode, data);
+		super.onActivityResult(requestCode, resultCode, data);
+		if (!UserContext.authorized) {
+			FacebookService.instance().authorizeCallback(requestCode,
+					resultCode, data);
+			UserContext.authorized = true;
+		}
+	}
+```
+
+_Get FaceBook Profile:__ You can get your Facebook profile while getting authorization callBack(in onComplete() describe above).
+This is done in FacebookService.java file.
+
+```
+   public void getFacebookProfile(FriendList callingActivity)
+    {
+        Bundle params = new Bundle();
+        params.putString("fields", "name, picture");       
+        mAsyncRunner.request("me", params, new FacebookRequestListener(callingActivity));
+    }
+    
+```
+
+_Get FaceBook Friends:__ You can get your Facebook friends you can write your own query or refer following code
+written in FacebookService.java file.
+
+```
+  public void getFacebookFriends(FacebookFriendListRequester caller){
+       if(mUIThreadHandler == null){
+    		mUIThreadHandler = new Handler();
+    	}
+        Bundle params = new Bundle();
+    	params.putString("method","fql.query");
+    	params.putString("query","SELECT name,uid,pic,online_presence FROM user WHERE uid IN ( SELECT uid2 FROM friend WHERE uid1 = me()) ORDER BY name" ); 
+    	mAsyncRunner.request(params, new FacebookFriendListRequest(caller));
+    }
+    
+```
+
