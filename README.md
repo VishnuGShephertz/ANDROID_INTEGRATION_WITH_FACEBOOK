@@ -72,21 +72,18 @@ __Authorization With Face-Book:__ To use Face-book API in your android applicati
 
             @Override
             public void onFacebookError(FacebookError error) {
-            	System.out.println("ewqqweweeweewew111111111111111");
             	System.err.println("Facebook onFacebookError");
             	hostActivity.onFbError();
             }
 
             @Override
             public void onError(DialogError e) {
-            	System.out.println("ewqqweweeweewew111111111111122222222222211");
             	System.err.println("Facebook DialogError");
             	hostActivity.onFbError();
             }
 
             @Override
             public void onCancel() {
-            	System.out.println("ccccccccccccccccccc");
             	System.err.println("Facebook onCancel");
             	hostActivity.onFbError();
             }
