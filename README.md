@@ -58,7 +58,6 @@ __Authorization With Face-Book:__ To use Face-book API in your android applicati
         		, new DialogListener() {
             @Override
             public void onComplete(Bundle values) {
-            	System.out.println("authorize on complete");
             	if(mPrefs == null){
             		mPrefs = appContext.getSharedPreferences("MyGamePreferences", android.content.Context.MODE_PRIVATE);
             	}
@@ -72,19 +71,16 @@ __Authorization With Face-Book:__ To use Face-book API in your android applicati
 
             @Override
             public void onFacebookError(FacebookError error) {
-            	System.err.println("Facebook onFacebookError");
             	hostActivity.onFbError();
             }
 
             @Override
             public void onError(DialogError e) {
-            	System.err.println("Facebook DialogError");
             	hostActivity.onFbError();
             }
 
             @Override
             public void onCancel() {
-            	System.err.println("Facebook onCancel");
             	hostActivity.onFbError();
             }
         });	

@@ -105,7 +105,6 @@ public class FriendList extends Activity implements FacebookFriendListRequester 
 			FacebookService.instance().getFacebookFriends(this);
 		} else {
 			dialog.dismiss();
-			System.out.println("Facebook profile not is retrived");
 		}
 	}
 
@@ -343,7 +342,6 @@ public class FriendList extends Activity implements FacebookFriendListRequester 
 
 	@Override
 	public void onFbError() {
-		System.out.println("Error is in getting friends");
 		dialog.dismiss();
 
 	}

@@ -103,7 +103,6 @@ public class FacebookService {
         		, new DialogListener() {
             @Override
             public void onComplete(Bundle values) {
-            	System.out.println("authorize on complete");
             	if(mPrefs == null){
             		mPrefs = appContext.getSharedPreferences("MyGamePreferences", android.content.Context.MODE_PRIVATE);
             	}
@@ -117,19 +116,16 @@ public class FacebookService {
 
             @Override
             public void onFacebookError(FacebookError error) {
-            	System.err.println("Facebook onFacebookError");
             	hostActivity.onFbError();
             }
 
             @Override
             public void onError(DialogError e) {
-            	System.err.println("Facebook DialogError");
             	hostActivity.onFbError();
             }
 
             @Override
             public void onCancel() {
-            	System.err.println("Facebook onCancel");
             	hostActivity.onFbError();
             }
         });	
