@@ -21,10 +21,8 @@ B. This also requires path of your debug.keystore (in my case, in windows is: C:
 C. Now open your command prompt and navigate to the jdk bin folder and run following command.
    keytool -exportcert -alias androiddebugkey -keystore "<debug.keystore path>" > C:\openssl\bin\debug.txt
 D. Navigate to "C:\openssl\bin\" using command prompt and run following commands.
-   openssl sha1 -binary debug.txt 
-   debug_sha.txt
-   openssl base64 -in debug_sha.txt 
-   debug_base64.txt
+   openssl sha1 -binary debug.txt >debug_sha.txt
+   openssl base64 -in debug_sha.txt >debug_base64.txt
 E. debug_base64.txt contains the key hash.
 F. Copy this key hash to your Facebook Application that you made in step 2.
    (Edit Settings -> Native Android App -> Key Hashes:) and also enable Facebook login and save it.
